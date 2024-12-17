@@ -1,4 +1,4 @@
-# MIS_Backend
+# Resume_Scanner
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 
@@ -28,4 +28,4 @@ A simple keyword scanner for resumes
     pip install -r .\requirements.txt
     ```
 
-7. Start using `mis-backend` :tada:
+7. Start using `resume-scanner` :tada:
