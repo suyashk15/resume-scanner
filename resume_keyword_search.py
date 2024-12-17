@@ -32,7 +32,7 @@ def get_drive_service(credentials_file):
         scopes = ["https://www.googleapis.com/auth/drive.readonly"]
         creds = Credentials.from_service_account_info(json.load(credentials_file), scopes=scopes)
         service = build("drive", "v3", credentials=creds)
-        st.success("Google Drive API service initialized successfully!")
+        # st.success("Google Drive API service initialized successfully!")
         return service
     except Exception as e:
         st.error(f"Failed to initialize Google Drive API: {e}")
@@ -70,14 +70,15 @@ def main():
         st.success("Credentials file uploaded successfully!")
         st.write("File Name:", credentials_file.name)
         drive_service = get_drive_service(credentials_file)
-        if drive_service:
-            st.success("Google Drive API service is working!")
-        else:
+        # if drive_service:
+        #     st.success("Google Drive API service is working!")
+        if not drive_service:
             st.error("Google Drive service initialization failed.")
 
         # Upload the spreadsheet
         spreadsheet = st.file_uploader("Upload Candidate Spreadsheet (Excel)", type=["xlsx"])
         if spreadsheet:
+            st.success("Candidate Spreadsheet uploaded successfully!")
             df = pd.read_excel(spreadsheet)
             st.write("### Preview of Spreadsheet:")
             st.dataframe(df)
