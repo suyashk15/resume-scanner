@@ -4,10 +4,6 @@
 
 A simple keyword scanner for resumes
 
-# Table of contents
-
-- [Installation](#installation)
-
 # Installation
 
 1. Install Python (preferably, version >= 3.11)
@@ -28,4 +24,25 @@ A simple keyword scanner for resumes
     pip install -r .\requirements.txt
     ```
 
-7. Start using `resume-scanner` :tada:
+4. Run the streamlit app
+    ```sh
+    streamlit run resume_keyword_search.py
+    ```
+
+5. Start using `resume-scanner` :tada:
+
+
+# Using Deployed Version
+
+1. Open the app in your browser: https://god-resume-scanner.streamlit.app/
+
+2. Upload the service account JSON file.
+
+3. Upload the Excel spreadsheet with resume links.
+
+4. Select the Resume Link column.
+5. Enter keywords (comma-separated, e.g., Python, Django, Machine Learning, React).
+
+6. Click the "Search Resumes" button.
+
+7. The app will process resumes and display: Names of candidates whose resumes contain the keywords and links to their resumes.
