@@ -25,7 +25,6 @@ def extract_file_id(drive_link):
             return match.group(1)
     return None
 
-
 # Function to initialize Google Drive API service
 @st.cache_resource
 def get_drive_service(credentials_file):
@@ -119,13 +118,18 @@ def main():
                 # Display Results
                 if matching_resumes:
                     st.write("### Resumes containing the keywords:")
+
+                    table_md = "| Candidate Name | Resume Link |\n|---|---|\n"
+
                     for match in matching_resumes:
-                        st.write(f"**{match['Name']}**: [Resume Link]({match['Resume Link']})")
+                        name = match['Name']
+                        link = match['Resume Link']
+                        table_md += f"| {name} | [Resume Link]({link}) |\n"
+
+                    # Render the table as Markdown
+                    st.markdown(table_md, unsafe_allow_html=True)
                 else:
                     st.info("No resumes matched the given keywords.")
-
-        # else:
-        #   st.warning("Credentials not found")
 
 if __name__ == "__main__":
     main()
